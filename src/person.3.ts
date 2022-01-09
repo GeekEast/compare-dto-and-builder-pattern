@@ -1,4 +1,5 @@
 // no dependencies
+
 export class Person3 {
   private _firstName: string;
   private _lastName: string;
@@ -72,16 +73,7 @@ export class Person3 {
     }
 
     build(): Person3 {
-      if (!this._firstName) throw new Error('first name is missing');
-      if (!this._lastName) throw new Error('last name is missing');
-      if (!this._age) throw new Error('age is missing');
-      if (!this._address) throw new Error('address is missing');
-      if (!this._gender) throw new Error('gender is missing');
-      if (!this._minWeight) throw new Error('minWeight is missing');
-      if (!this._maxWeight) throw new Error('maxWeight is missing');
-      if (this._minWeight > this._maxWeight)
-        throw new Error('minWeight should not be more than maxWeight');
-
+      this.validate();
       return new Person3(
         this._firstName,
         this._lastName,
@@ -91,6 +83,19 @@ export class Person3 {
         this._maxWeight,
         this._minWeight
       );
+    }
+
+    validate() {
+      // ! 复杂校验逻辑
+      if (!this._firstName) throw new Error('first name is missing');
+      if (!this._lastName) throw new Error('last name is missing');
+      if (!this._age) throw new Error('age is missing');
+      if (!this._address) throw new Error('address is missing');
+      if (!this._gender) throw new Error('gender is missing');
+      if (!this._minWeight) throw new Error('minWeight is missing');
+      if (!this._maxWeight) throw new Error('maxWeight is missing');
+      if (this._minWeight > this._maxWeight)
+        throw new Error('minWeight should not be more than maxWeight');
     }
   };
 

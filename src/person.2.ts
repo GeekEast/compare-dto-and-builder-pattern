@@ -47,7 +47,7 @@ export class Person2 extends DTOBase {
   @Expose()
   maxWeight: number;
 
-  // ! 复杂校验逻辑
+  // ! 依赖校验逻辑
   validate(errors: ValidationError[]): ValidationError[] {
     if (this.minWeight > this.maxWeight) {
       const error = new this.ValidationErrorBuilder()
